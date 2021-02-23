@@ -123,3 +123,7 @@ ul {
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }
+footer {
+  text-align: center;
+  font-size: small;
+}
