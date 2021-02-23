@@ -1,4 +1,125 @@
-h1 {
+ul {
+  list-style: none;
+}
+.weatherApp {
+  background-image: linear-gradient(
+    to bottom,
+    #fcc5e4 0%,
+    #fda34b 15%,
+    #ff7882 35%,
+    #c8699e 52%,
+    #7046aa 71%,
+    #0c1db8 87%,
+    #020f75 100%
+  );
+  font-family: "Questrial", sans-serif;
+  color: white;
+  max-width: 800px;
+  margin: 20px auto;
+  border: none;
+  border-radius: 20px;
+  padding: 30px 40px;
+}
+.citySearch,
+.searchButton,
+#location-button {
+  border: 3px solid #020f75;
+  border-radius: 10px;
+  margin: 0 0 25px 0;
+}
+.searchButton,
+#location-button {
+  color: white;
+  background: #020f75;
+}
+.searchButton:hover,
+#location-button:hover {
+  color: white;
+  background: #7046aa;
+  border-color: #7046aa;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+#city-name,
+#date-time {
+  font-family: "Montserrat Alternates", sans-serif;
   text-align: center;
-  color: red;
+  font-weight: 100;
+}
+#weather-description {
+  line-height: 1.2;
+  margin-top: 70px;
+  font-size: 24px;
+}
+.fullTemp {
+  text-align: center;
+}
+#current-temp {
+  vertical-align: top;
+  font-size: 75px;
+}
+.degrees {
+  display: inline-block;
+  font-size: 20px;
+  padding-top: 15px;
+}
+#fahrenheit-button,
+#celsius-button {
+  font-weight: bolder;
+  text-decoration: none;
+  background: none;
+  border: none;
+}
+.celsius {
+  color: white;
+}
+.fahrenheit {
+  color: #0c1db8;
+}
+#current-weather {
+  font-weight: bolder;
+}
+#current-emoji {
+  font-size: 75px;
+}
+.humidity {
+  font-size: 15px;
+  padding: 10px 0 5px 0;
+}
+.wind {
+  font-size: 15px;
+  padding: 5px 0 5px 0;
+}
+.hiLow {
+  font-size: 15px;
+  padding-top: 5px;
+}
+.dayOfTheWeek {
+  font-size: 20px;
+  padding-top: 5px;
+}
+.emoji {
+  font-size: 50px;
+}
+.sixDayForecast {
+  margin-top: 70px;
+}
+.col-2 {
+  text-align: center;
+  padding: 0;
+}
+.futureForecastButton {
+  color: white;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  margin: 5px auto;
+  padding: 5px;
+}
+.futureForecastButton:hover {
+  color: white;
+  background: #fda34b;
+  border-color: #fda34b;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
 }
