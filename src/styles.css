@@ -50,7 +50,6 @@ ul {
   line-height: 1.2;
   margin-top: 70px;
   font-size: 24px;
-  text-transform: capitalize;
 }
 .fullTemp {
   text-align: center;
@@ -79,6 +78,7 @@ ul {
 }
 #current-weather {
   font-weight: bolder;
+  text-transform: capitalize;
 }
 #current-emoji {
   font-size: 75px;

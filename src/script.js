@@ -74,7 +74,7 @@ function getCurrentHighLow(response) {
 }
 function getCurrentWindSpeed(response) {
       let currentWindSpeed = document.querySelector("#current-speed");
-      let windSpeed = response.data.wind.speed;
+      let windSpeed = Math.round(response.data.wind.speed);
       currentWindSpeed.innerHTML = windSpeed;
 }
 function getCurrentHumidity(response) {
