@@ -78,6 +78,8 @@ ul {
 }
 #current-weather {
   font-weight: bolder;
+}
+#current-weather:first-letter {
   text-transform: capitalize;
 }
 #current-emoji {

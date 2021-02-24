@@ -1,4 +1,7 @@
+//Displays your local date and time on the screen
 function getDate(now) {
+    let date = now.getDate();
+
     let days = [
       "Sunday",
       "Monday",
@@ -9,6 +12,7 @@ function getDate(now) {
       "Saturday"
     ];
     let day = days[now.getDay()];
+
     let months = [
       "January",
       "February",
@@ -24,39 +28,42 @@ function getDate(now) {
       "December"
     ];
     let month = months[now.getMonth()];
-    let date = now.getDate();
+    
     let hours = now.getHours();
     if (hours < 10) {
       hours = `0${hours}`;
     }
+
     let minutes = now.getMinutes();
     if (minutes < 10) {
       minutes = `0${minutes}`;
     }
+
     let currentDate = document.querySelector("#date");
     currentDate.innerHTML = `${day}, ${month} ${date} `;
     let currentTime = document.querySelector("#time");
     currentTime.innerHTML = `${hours}:${minutes}`;
 }
 
+//functions used in city searches
 function getEmoji(response) {
   let mainWeather = response.data.weather[0].main;
   let currentEmoji = document.querySelector("#current-emoji");
   //console.log(mainWeather);
   if (mainWeather === "Clouds") {
     currentEmoji.innerHTML = "☁️";
-  } else if (mainWeather === "Snow") {
-    currentEmoji.innerHTML = "❄️";
-  } else if (mainWeather === "Haze") {
-    currentEmoji.innerHTML = "🌫";
-  } else if (mainWeather === "Mist") {
-    currentEmoji.innerHTML = "💦";
-  } else if (mainWeather === "Rain") {
-    currentEmoji.innerHTML = "☔️";
   } else if (mainWeather === "Clear") {
     currentEmoji.innerHTML = "☀️";
-  } else  {
-    currentEmoji.innerHTML = "🙁 We can't find your forecast";
+  } else if (mainWeather === "Snow") {
+    currentEmoji.innerHTML = "❄️";
+  } else if (mainWeather === "Rain") {
+    currentEmoji.innerHTML = "🌧";
+  } else if (mainWeather === "Drizzle") {
+    currentEmoji.innerHTML = "☔️";
+  } else if (mainWeather === "Thunderstorm") {
+    currentEmoji.innerHTML = "🌩";
+  } else {
+    currentEmoji.innerHTML = "🌫";
   } 
 }
 function getCurrentForecast(response) {
@@ -118,6 +125,7 @@ function displayCity(response){
       cityName.innerHTML = city;
 }
 
+//takes city entered and retreives: city name, temp, humidity, wind speed, forecast, high/low, and emoji
 function searchCity(city){
 //Connects the script to the api URL
   let apiKey = "f78eec04b621104e9165191859d3da15";
@@ -139,6 +147,7 @@ function handleFormSubmit(event) {
 searchCity(city);
 }
 
+//Gets your coordinates and uses them to retreive: city name, temp, humidity, wind speed, forecast, high/low, and emoji
 function getCurrentPosition(position) {
   let apiKey = "f78eec04b621104e9165191859d3da15";
   let latitude = position.coords.latitude;
@@ -169,5 +178,5 @@ searchForm.addEventListener("submit", handleFormSubmit);
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", handlePosition);
 
-//Default display of the weather for my favorite city 
+//Default display weather for my favorite city 
 searchCity("Moab");
