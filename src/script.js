@@ -62,7 +62,6 @@ function getEmoji(response) {
 function getCurrentForecast(response) {
   let currentForecast = document.querySelector("#current-weather");
   let forecast = response.data.weather[0].description;
-  forecast = forecast.replace(/(^\w|\s\w)/g, m => m.toUpperCase());
   currentForecast.innerHTML = forecast;
 }
 function getCurrentHighLow(response) {
