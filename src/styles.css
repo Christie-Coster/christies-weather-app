@@ -25,15 +25,13 @@ ul {
 #location-button {
   border: 3px solid #020f75;
   border-radius: 10px;
-  margin: 0 0 25px 0;
+  margin: 1px;
 }
-.searchButton,
-#location-button {
+.searchButton {
   color: white;
   background: #020f75;
 }
-.searchButton:hover,
-#location-button:hover {
+.searchButton:hover {
   color: white;
   background: #7046aa;
   border-color: #7046aa;
@@ -63,18 +61,18 @@ ul {
   font-size: 20px;
   padding-top: 15px;
 }
+.celsius {
+  color: white;
+}
+.fahrenheit {
+  color: #0c1db8;
+}
 #fahrenheit-button,
 #celsius-button {
   font-weight: bolder;
   text-decoration: none;
   background: none;
   border: none;
-}
-.celsius {
-  color: white;
-}
-.fahrenheit {
-  color: #0c1db8;
 }
 #current-weather {
   font-weight: bolder;
@@ -107,7 +105,7 @@ ul {
 .sixDayForecast {
   margin-top: 70px;
 }
-.col-2 {
+.dailyButton {
   text-align: center;
   padding: 0;
 }

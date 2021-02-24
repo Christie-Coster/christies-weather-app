@@ -18,19 +18,20 @@
     <div class="weatherApp">
         <form id="search-form">
             <div class="row">
-                <div class="col-8">
+                <div class="col-11">
                     <div class="input-group mb-3" id="search-form">
                         <input id="search-input" type="search" class="form-control citySearch"
-                            placeholder="Enter city..." autocomplete="off" autofocus="on"
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary searchButton" type="submit"
-                            id="button-addon2">🔍</button>
+                            placeholder="Enter city..." autocomplete="off" autofocus="on">
+                        <button class="btn searchButton">
+                            🔍
+                        </button>
+                        <button class="btn searchButton" id="location-button">
+                            📍
+                        </button>
                     </div>
                 </div>
-                <div class="col-4">
-                    <button class="btn searchButton" id="location-button">
-                        My Location
-                    </button>
+                <div class="col-1">
+                    
                 </div>
             </div>
         </form>
@@ -74,7 +75,7 @@
 
         <div class="sixDayForecast">
             <div class="row">
-                <div class="col-2" id="first">
+                <div class="col-2 dailyButton" id="first">
                     <button type="button" class="futureForecastButton">
                         <div class="dayOfTheWeek" id="first-day">Mon</div>
                         <div class="emoji" id="first-emoji">🌥</div>
@@ -84,7 +85,7 @@
                         </div>                    
                     </button>
                 </div>
-                <div class="col-2" id="second">
+                <div class="col-2 dailyButton" id="second">
                     <button type="button" class="futureForecastButton">
                         <div class="dayOfTheWeek" id="second-day">Tue</div>
                         <div class="emoji" id="second-emoji">🌥</div>
@@ -95,7 +96,7 @@
                             </div>
                     </button>
                 </div>
-                <div class="col-2" id="third">
+                <div class="col-2 dailyButton" id="third">
                     <button type="button" class="futureForecastButton">
                         <div class="dayOfTheWeek" id="third-day">Wed</div>
                         <div class="emoji" id="third-emoji">🌥</div>
@@ -105,7 +106,7 @@
                             </div>
                     </button>
                 </div>
-                <div class="col-2" id="fourth">
+                <div class="col-2 dailyButton" id="fourth">
                     <button type="button" class="futureForecastButton">
                         <div class="dayOfTheWeek" id="fourth-day">Thu</div>
                         <div class="emoji" id="fourth-emoji">🌥</div>
@@ -115,7 +116,7 @@
                             </div>
                     </button>
                 </div>
-                <div class="col-2" id="fifth">
+                <div class="col-2 dailyButton" id="fifth">
                     <button type="button" class="futureForecastButton">
                         <div class="dayOfTheWeek" id="fifth-day">Fri</div>
                         <div class="emoji" id="fifth-emoji">🌥</div>
@@ -126,7 +127,7 @@
                         </div>                    
                     </button>
                 </div>
-                <div class="col-2" id="sixth">
+                <div class="col-2 dailyButton" id="sixth">
                     <button type="button" class="futureForecastButton">
                         <div class="dayOfTheWeek" id="sixth-day">Sat</div>
                         <div class="emoji" id="sixth-emoji">🌥</div>
