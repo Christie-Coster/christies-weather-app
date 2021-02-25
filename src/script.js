@@ -144,7 +144,9 @@ function checkCurrentCTemp(event) {
 
 function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=${unit}`;
-
+  let displayTemp = document.querySelector("#current-temp");
+  displayTemp.classList.add("fahrenheit");
+  displayTemp.classList.remove("celsius");
   axios.get(`${apiUrl}`).then(displayCity);
   axios.get(`${apiUrl}`).then(getCurrentTemp);
   axios.get(`${apiUrl}`).then(getCurrentHumidity);
@@ -164,7 +166,9 @@ function getCurrentPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
-
+  let displayTemp = document.querySelector("#current-temp");
+  displayTemp.classList.add("fahrenheit");
+  displayTemp.classList.remove("celsius");
   axios.get(`${apiUrl}`).then(displayCity);
   axios.get(`${apiUrl}`).then(getCurrentTemp);
   axios.get(`${apiUrl}`).then(getCurrentHumidity);
