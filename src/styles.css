@@ -62,10 +62,10 @@ ul {
   padding-top: 15px;
 }
 .celsius {
-  color: white;
+  color: #0c1db8;
 }
 .fahrenheit {
-  color: #0c1db8;
+  color: white;
 }
 #fahrenheit-button,
 #celsius-button {
