@@ -78,36 +78,39 @@ windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
 currentHigh.innerHTML = Math.round(response.data.main.temp_max);
 currentLow.innerHTML = Math.round(response.data.main.temp_min);
 }
-function displayFirstForecast(response) {
-  function formatDate(timestamp) {
-    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    let now = new Date(timestamp);
-    let day = days[now.getDay() + 1];
-    return `${day}`;
-  }
+function displayForecast(response) {
   let forecastElement = document.querySelector("#futureForecast");
-  let forecast = response.data.list[0];
-  let timestamp = forecast.dt * 1000;
+  forecastElement.innerHTML = null;
+  let forecast = null;
 
-  let currentEmoji = mainWeather;
-  //console.log(mainWeather);
-  if (mainWeather === "Clouds") {
-    currentEmoji = "☁️"
-  } else if (mainWeather === "Clear") {
-    currentEmoji = "☀️"
-  } else if (mainWeather === "Snow") {
-    currentEmoji = "❄️"
-  } else if (mainWeather === "Rain") {
-    currentEmoji = "🌧"
-  } else if (mainWeather === "Drizzle") {
-    currentEmoji = "☔️"
-  } else if (mainWeather === "Thunderstorm") {
-    currentEmoji = "🌩"
-  } else {
-    currentEmoji = "🌫"
-  }
-
-  forecastElement.innerHTML = `
+  index = [0, 8, 16, 24, 32]
+  index.forEach(element => {
+    forecast = response.data.list[element];
+    let timestamp = forecast.dt * 1000;
+    function formatDate(timestamp) {
+        let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+        let now = new Date(timestamp);
+        let day = days[now.getDay() + 1];
+       
+        return `${day}`;
+        }
+    let currentEmoji = mainWeather;
+        if (mainWeather === "Clouds") {
+            currentEmoji = "☁️"
+        } else if (mainWeather === "Clear") {
+            currentEmoji = "☀️"
+        } else if (mainWeather === "Snow") {
+            currentEmoji = "❄️"
+        } else if (mainWeather === "Rain") {
+            currentEmoji = "🌧"
+        } else if (mainWeather === "Drizzle") {
+            currentEmoji = "☔️"
+        } else if (mainWeather === "Thunderstorm") {
+            currentEmoji = "🌩"
+        } else {
+            currentEmoji = "🌫"
+        }
+  forecastElement.innerHTML +=  `
     <div class="col-2 dailyButton">
         <button type="button" class="futureForecastButton">
             <div class="dayOfTheWeek">
@@ -121,9 +124,9 @@ function displayFirstForecast(response) {
                     ⬇<span></span>${Math.round(forecast.main.temp_min)}</span>º
             </div>
         </button>
-    </div>`;
-
-  //console.log(forecast);
+    </div>
+    `;
+    }); 
 }
 
 function searchCity(city) {
@@ -134,7 +137,7 @@ function searchCity(city) {
   axios.get(apiUrl).then(displayWeather);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=${unit}`;
-  axios.get(`${apiUrl}`).then(displayFirstForecast);
+  axios.get(`${apiUrl}`).then(displayForecast);
 }
 
 function handleFormSubmit(event) {
@@ -154,7 +157,7 @@ function getCurrentPosition(position) {
   axios.get(apiUrl).then(displayWeather);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=${unit}`;
-  axios.get(`${apiUrl}`).then(displayFirstForecast);
+  axios.get(`${apiUrl}`).then(displayForecast);
 }
 function handlePosition(event) {
   event.preventDefault();
@@ -170,7 +173,7 @@ function convertToFahrenheit(unit) {
   axios.get(apiUrl).then(displayWeather);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=${unit}`;
-  axios.get(`${apiUrl}`).then(displayFirstForecast);
+  axios.get(`${apiUrl}`).then(displayForecast);
 }
 function checkCurrentFTemp(event) {
   event.preventDefault();
@@ -188,7 +191,7 @@ function convertToCelsius(unit) {
   axios.get(apiUrl).then(displayWeather);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=${unit}`;
-  axios.get(`${apiUrl}`).then(displayFirstForecast);
+  axios.get(`${apiUrl}`).then(displayForecast);
 }
 function checkCurrentCTemp(event) {
   event.preventDefault();
