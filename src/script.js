@@ -39,7 +39,7 @@ function getDate(now) {
   currentTime.innerHTML = `${hours}:${minutes}`;
 }
 function getEmoji(response) {
-  let mainWeather = response.data.weather[0].main;
+  mainWeather = response.data.weather[0].main;
   let currentEmoji = document.querySelector("#current-emoji");
   //console.log(mainWeather);
   if (mainWeather === "Clouds") {
@@ -88,6 +88,25 @@ function displayFirstForecast(response) {
   let forecastElement = document.querySelector("#futureForecast");
   let forecast = response.data.list[0];
   let timestamp = forecast.dt * 1000;
+
+  let currentEmoji = mainWeather;
+  //console.log(mainWeather);
+  if (mainWeather === "Clouds") {
+    currentEmoji = "☁️"
+  } else if (mainWeather === "Clear") {
+    currentEmoji = "☀️"
+  } else if (mainWeather === "Snow") {
+    currentEmoji = "❄️"
+  } else if (mainWeather === "Rain") {
+    currentEmoji = "🌧"
+  } else if (mainWeather === "Drizzle") {
+    currentEmoji = "☔️"
+  } else if (mainWeather === "Thunderstorm") {
+    currentEmoji = "🌩"
+  } else {
+    currentEmoji = "🌫"
+  }
+
   forecastElement.innerHTML = `
     <div class="col-2 dailyButton">
         <button type="button" class="futureForecastButton">
@@ -95,9 +114,7 @@ function displayFirstForecast(response) {
             ${formatDate(timestamp)}
             </div>
             <div class="emoji"> 
-                <img src= "http://openweathermap.org/img/wn/${
-                  forecast.weather[0].icon
-                }@2x.png"/>
+             ${currentEmoji}
             </div>
             <div class="highLow">
                     ⬆<span></span>${Math.round(forecast.main.temp_max)}</span>º
@@ -180,6 +197,7 @@ function checkCurrentCTemp(event) {
 }
 
 let city = "Moab";
+let mainWeather = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleFormSubmit);
