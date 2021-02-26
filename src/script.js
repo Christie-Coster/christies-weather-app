@@ -167,8 +167,12 @@ function handlePosition(event) {
 function convertToFahrenheit(unit) {
   let apiKey = "f78eec04b621104e9165191859d3da15";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=${unit}`;
+  let speedUnits = document.querySelector ("#speed-units");
+  speedUnits.innerHTML = "mph"
+
   let convertTempFahrenheit = document.querySelector("#current-temp");
   convertTempFahrenheit.classList.add("fahrenheit");
+  
   axios.get(`${apiUrl}`).then(getEmoji);
   axios.get(apiUrl).then(displayWeather);
 
@@ -184,6 +188,10 @@ function checkCurrentFTemp(event) {
 function convertToCelsius(unit) {
   let apiKey = "f78eec04b621104e9165191859d3da15";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=${unit}`;
+
+  let speedUnits = document.querySelector ("#speed-units");
+  speedUnits.innerHTML = "m/sec"
+
   let convertTempCelsius = document.querySelector("#current-temp");
   convertTempCelsius.classList.add("celsius");
   convertTempCelsius.classList.remove("fahrenheit");
