@@ -112,7 +112,7 @@ console.log(response);
             currentEmoji = "🌫"
         }
   forecastElement.innerHTML +=  `
-    <div class="col-md dailyButton">
+    <div class="col-2 dailyButton">
             <div class="dayOfTheWeek">
             ${formatDate(timestamp)}
             </div>
