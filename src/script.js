@@ -82,7 +82,7 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#futureForecast");
   forecastElement.innerHTML = null;
   let forecast = null;
-
+console.log(response);
   index = [0, 8, 16, 24, 32]
   index.forEach(element => {
     forecast = response.data.list[element];
@@ -94,6 +94,7 @@ function displayForecast(response) {
        
         return `${day}`;
         }
+
     let currentEmoji = mainWeather;
         if (mainWeather === "Clouds") {
             currentEmoji = "☁️"
@@ -111,8 +112,7 @@ function displayForecast(response) {
             currentEmoji = "🌫"
         }
   forecastElement.innerHTML +=  `
-    <div class="col-2 dailyButton">
-        <button type="button" class="futureForecastButton">
+    <div class="col-md dailyButton">
             <div class="dayOfTheWeek">
             ${formatDate(timestamp)}
             </div>
@@ -123,10 +123,15 @@ function displayForecast(response) {
                     ⬆<span></span>${Math.round(forecast.main.temp_max)}</span>º
                     ⬇<span></span>${Math.round(forecast.main.temp_min)}</span>º
             </div>
-        </button>
     </div>
     `;
     }); 
+        function outputAdvice(event){
+        event.preventDefault();
+            alert("Hello!");
+        }
+    let adviceButton = document.querySelector(".futureForecastButton");
+    adviceButton.addEventListener("click", outputAdvice);
 }
 
 function searchCity(city) {
@@ -206,6 +211,7 @@ function checkCurrentCTemp(event) {
   let unit = "metric";
   convertToCelsius(unit);
 }
+
 
 let city = "Moab";
 let mainWeather = null;

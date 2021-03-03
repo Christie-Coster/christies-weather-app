@@ -19,6 +19,7 @@ ul {
   border: none;
   border-radius: 20px;
   padding: 30px 40px;
+  text-align: center;
 }
 
 .citySearch,
@@ -49,6 +50,7 @@ ul {
   line-height: 1.2;
   margin-top: 70px;
   font-size: 24px;
+  text-align: left;
 }
 .fullTemp {
   text-align: center;
@@ -98,7 +100,6 @@ ul {
 }
 .dayOfTheWeek {
   font-size: 20px;
-  padding-top: 5px;
 }
 .emoji {
   font-size: 50px;
@@ -106,25 +107,7 @@ ul {
 .sixDayForecast {
   margin-top: 70px;
 }
-.dailyButton {
-  text-align: center;
-  padding: 0;
-}
-.futureForecastButton {
-  color: white;
-  background: none;
-  border: none;
-  border-radius: 10px;
-  margin: 5px auto;
-  padding: 5px;
-}
-.futureForecastButton:hover {
-  color: white;
-  background: #fda34b;
-  border-color: #fda34b;
-  cursor: pointer;
-  transition: all 200ms ease-in-out;
-}
+
 footer {
   text-align: center;
   font-size: small;
