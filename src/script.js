@@ -126,12 +126,7 @@ console.log(response);
     </div>
     `;
     }); 
-        function outputAdvice(event){
-        event.preventDefault();
-            alert("Hello!");
-        }
-    let adviceButton = document.querySelector(".futureForecastButton");
-    adviceButton.addEventListener("click", outputAdvice);
+
 }
 
 function searchCity(city) {
@@ -161,7 +156,7 @@ function getCurrentPosition(position) {
   axios.get(`${apiUrl}`).then(getEmoji);
   axios.get(apiUrl).then(displayWeather);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=${unit}`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&APPID=${apiKey}&units=${unit}`;
   axios.get(`${apiUrl}`).then(displayForecast);
 }
 function handlePosition(event) {
